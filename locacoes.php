@@ -6,7 +6,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
+
     <title>Home</title>
   </head>
   <body>
@@ -36,7 +36,7 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar locações por ano</a></li>
+                    <li><a class="dropdown-item" href="locaoes_grafico.php">Consultar locações por mês</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -57,5 +57,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+    <table class="table table-hover">
+        <tr>
+            <th>Olá</th>
+            <th>Teste</th>
+        </tr>
+        <tr>
+            <td>Valor teste</td>
+            <td>Valor teste2</td>
+        </tr>
+    </table>
   </body>
 </html>
