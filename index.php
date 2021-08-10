@@ -36,7 +36,7 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar locações por ano</a></li>
+                    <li><a class="dropdown-item" href="#">Consultar locações por mês</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
