@@ -1,7 +1,26 @@
 body {
-    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
+}
+
+.admin {
+    background-image: url('../images/adm_bg.jpg');
+}
+
+.Cliente {
+    background-image: url('../images/cliente_bg.jpg');
+}
+
+.Vendedor {
+    background-image: url('../images/vendedor_bg.jpg');
+}
+
+.Veículo {
+    background-image: url('../images/veiculo_bg.jpg');
+}
+
+.login {
+    background-image: url('../images/login_bg.jpg');
 }
 
