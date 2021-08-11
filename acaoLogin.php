@@ -29,10 +29,12 @@
 
     function logar($user,$senha) {
         $sql = "SELECT * FROM ".$GLOBALS['tb_login'].
-               " WHERE log_id = '$user'"
-             .  " JOIN usuario"
-             .  "USING (usu_tipo);";
+                " JOIN usuario ".
+                "USING (usu_tipo) ".
+                "WHERE log_id = '$user';";
+
         $result = mysqli_query($GLOBALS['conexao'], $sql);
+        
         $senhaBD = "";
         $usuario = "";
         $perfil = "";

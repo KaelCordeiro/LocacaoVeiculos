@@ -18,7 +18,7 @@
     <label for="pass">Senha</label>
     <input type="password" name="pass" id="pass" value=""><br/><br/>
     <button name="acao" value="login" id="login" type="submit">
-      Entrar
+        Entrar
     </button>
   </fieldset>
 </form>

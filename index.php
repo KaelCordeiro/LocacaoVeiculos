@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php
+    session_start();
+    $perfil = $_SESSION['perfil'];
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -13,7 +16,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Bem Vindo <?php echo $_SESSION['perfil']; ?></a>
+            <a class="navbar-brand" href="index.php">Bem Vindo <?php echo $perfil ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">Sair</span>
             </button>
@@ -22,6 +25,8 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                 </li>
+                
+                <?php if ($perfil == "admin"): ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Usuários
@@ -31,18 +36,33 @@
                     <li><a class="dropdown-item" href="#">Vendedor</a></li>
                   </ul>
                 </li>
+                <?php endif; ?>
+                
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Locações
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <?php if ($perfil == "Cliente" || $perfil == "Admin"): ?>
+                    <li><a class="dropdown-item" href="locacoes.php">Alugar um veículo</a></li>
+                    <?php endif; ?>
+                    
+                    <?php if ($perfil != "Veiculo"): ?>
                     <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar locações por mês</a></li>
+                    <?php endif; ?>
+                    
+                    <?php if ($perfil == "admin"): ?>
+                    <li><a class="dropdown-item" href="#">Gráfico de locações</a></li>
+                    <?php endif; ?>
                   </ul>
                 </li>
+                
+                <?php if ($perfil == "Veiculo" || $perfil == "admin"): ?>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Veículos</a>
                 </li>
+                <?php endif; ?>
+                
               </ul>
                 <form class="d-flex" action="acaoLogin.php">
                     <button class="btn btn-dark" name="acao" type="submit" value="logoff">Sair</button>
