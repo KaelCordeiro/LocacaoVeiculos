@@ -43,16 +43,21 @@
             $senhaBD = $row['log_senha'];
             $usuario = $row['log_id'];
             $perfil = $row['usu_perfil'];
+            $ativo = $row['log_ativo'];
         }
 
         $senha = sha1($senha); 
         
-        if ($senha == $senhaBD) {
-            session_start();
-            $_SESSION['usuario'] = $usuario;
-            $_SESSION['perfil'] = $perfil;
-            header("location:index.php");	
-        } else { 
+        if ($ativo) {
+            if ($senha == $senhaBD) {
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['perfil'] = $perfil;
+                header("location:index.php");	
+            } else { 
+                header("location:login.php");
+            }
+        } else {
             header("location:login.php");
         }
     }

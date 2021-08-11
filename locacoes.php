@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if (isset($_SESSION['perfil'])) {
+        $perfil = $_SESSION['perfil'];
+    } else {
+        session_destroy();
+        header("location:login.php");
+    }
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
