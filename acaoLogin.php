@@ -18,7 +18,7 @@
                 if ($user == "admin" && $senha == "admin") {
                     session_start();
                     $_SESSION['usuario'] = $user;
-                    $_SESSION['perfil'] = $senha;
+                    $_SESSION['perfil'] = $user;
                     header("location:index.php");
                 } else {
                     logar($user,$senha);

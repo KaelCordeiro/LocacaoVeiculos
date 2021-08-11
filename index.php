@@ -55,7 +55,7 @@
                     <?php endif; ?>
                     
                     <?php if ($perfil == "admin"): ?>
-                    <li><a class="dropdown-item" href="#">Gráfico de locações</a></li>
+                    <li><a class="dropdown-item" href="locacoes_grafico.php">Gráfico de locações</a></li>
                     <?php endif; ?>
                   </ul>
                 </li>
