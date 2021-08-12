@@ -4,6 +4,10 @@ body {
     background-position: center right;
 }
 
+input {
+    padding: 5px;
+}
+
 .admin {
     background-image: url('../images/adm_bg.jpg');
 }
@@ -26,5 +30,9 @@ body {
 
 .grafico {
     margin-top: 667px;
+}
+
+.locacao {
+    background-image: url('../images/locacao_bg.jpg');
 }
 

@@ -50,17 +50,17 @@
                             <li><a class="dropdown-item" href="locacoes.php">Alugar um veículo</a></li>
                         <?php endif; ?>
 
-                        <?php if ($perfil != "Veiculo"): ?>
+                        <?php if ($perfil != "Veículo"): ?>
                             <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
                         <?php endif; ?>
 
                         <?php if ($perfil == "admin"): ?>
-                            <li><a class="dropdown-item" href="locacoes_grafico.php">Gráfico</a></li>
+                            <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico</a></li>
                         <?php endif; ?>
                         </ul>
                     </li>
 
-                    <?php if ($perfil == "Veiculo" || $perfil == "admin"): ?>
+                    <?php if ($perfil == "Veículo" || $perfil == "admin"): ?>
                         <li class="nav-item">
                           <a class="nav-link" href="#">Veículos</a>
                         </li>
@@ -82,35 +82,37 @@
             
             function desenharGrafico() {
                 var data = new google.visualization.DataTable();
-                
-                data.addColumn('timeofday', 'Time of Day');
-                data.addColumn('number', 'Motivation Level');
 
-                data.addRows([  //DADOS
-                  [{v: [8, 0, 0], f: '8 am'}, 1],
-                  [{v: [9, 0, 0], f: '9 am'}, 2],
-                  [{v: [10, 0, 0], f:'10 am'}, 3],
-                  [{v: [11, 0, 0], f: '11 am'}, 4],
-                  [{v: [12, 0, 0], f: '12 pm'}, 5],
-                  [{v: [13, 0, 0], f: '1 pm'}, 6],
-                  [{v: [14, 0, 0], f: '2 pm'}, 7],
-                  [{v: [15, 0, 0], f: '3 pm'}, 8],
-                  [{v: [16, 0, 0], f: '4 pm'}, 9],
-                  [{v: [17, 0, 0], f: '5 pm'}, 10]
+                data.addColumn('string', 'Mês');
+                data.addColumn('number', 'Locações');
+
+                data.addRows([
+                  ['Janeiro'  , 1],
+                  ['Fevereiro', 2],
+                  ['Março'    , 3],
+                  ['Maio'     , 4],
+                  ['Abril'    , 5],
+                  ['Junho'    , 6],
+                  ['Julho'    , 7],
+                  ['Agosto'   , 8],
+                  ['Setembro' , 9],
+                  ['Outubro'  , 10],
+                  ['Novembro' , 11],
+                  ['Dezembro' , 12]
                 ]);
 
                 var options = {
-                  title: 'Locações por mês',
-                  hAxis: {
-                    title: 'Mês'
-                  },
-                  vAxis: {
-                    title: 'Locações realizadas'
-                  }
+                    title: 'Locações por mês',
+                    hAxis: {
+                      title: 'Mês'
+                    },
+                    vAxis: {
+                      title: 'Locações realizadas'
+                    }
                 };
 
                 var chart = new google.visualization.ColumnChart(
-                  document.getElementById('chart_div'));
+                    document.getElementById('chart_div'));
 
                 chart.draw(data, options);
             }

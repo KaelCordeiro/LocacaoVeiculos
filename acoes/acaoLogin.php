@@ -1,14 +1,15 @@
 <?php
-    include 'connect/connect.php';
+    include '../connect/connect.php';
 
     $acao = '';
-    if (isset($_GET["acao"]))
+    if (isset($_GET["acao"])) {
         $acao = $_GET["acao"];
+    }
 
     if ($acao == "logoff"){
         session_start();
         session_destroy();
-        header("location:login.php");	
+        header("location:../login.php");	
     } else {
         if (isset($_POST["acao"])){
             $acao = $_POST["acao"];
@@ -19,7 +20,7 @@
                     session_start();
                     $_SESSION['usuario'] = $user;
                     $_SESSION['perfil'] = $user;
-                    header("location:index.php");
+                    header("location:../index.php");
                 } else {
                     logar($user,$senha);
                 }
@@ -53,12 +54,12 @@
                 session_start();
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['perfil'] = $perfil;
-                header("location:index.php");	
+                header("location:../index.php");	
             } else { 
-                header("location:login.php");
+                header("location:../login.php");
             }
         } else {
-            header("location:login.php");
+            header("location:../login.php");
         }
     }
         

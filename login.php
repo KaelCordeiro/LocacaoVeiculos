@@ -13,7 +13,7 @@
     <title>Login</title>
   </head>
   <body class="login">
-      <form action="acaoLogin.php" id="form" method="post"class="col-md-12 text-center" style="margin-top: 180px">
+      <form action="acoes/acaoLogin.php" id="form" method="post" class="col-md-12 text-center" style="margin-top: 180px">
         <h1 style="color: white">Sistema de Locação de Veículos</h1> <br/> <br/> <br/> <br/>
         <fieldset>
             <legend><h2 style="color: white">Login</h2></legend>

@@ -22,16 +22,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.php">Início</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Usuários
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Cliente</a></li>
-                        <li><a class="dropdown-item" href="#">Vendedor</a></li>
-                      </ul>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Usuários
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Cliente</a></li>
+                            <li><a class="dropdown-item" href="#">Vendedor</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,7 +39,7 @@
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                        <li><a class="dropdown-item" href="locacoes_grafico.php">Gráfico</a></li>
+                        <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico</a></li>
                       </ul>
                     </li>
                     <li class="nav-item">

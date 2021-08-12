@@ -20,9 +20,6 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Bem Vindo <?php echo $perfil ?></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon">Sair</span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -47,7 +44,7 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php if ($perfil == "Cliente" || $perfil == "Admin"): ?>
-                    <li><a class="dropdown-item" href="locacoes.php">Alugar um veículo</a></li>
+                    <li><a class="dropdown-item" href="formularioLocacao.php">Alugar um veículo</a></li>
                     <?php endif; ?>
                     
                     <?php if ($perfil != "Veiculo"): ?>
@@ -55,7 +52,7 @@
                     <?php endif; ?>
                     
                     <?php if ($perfil == "admin"): ?>
-                    <li><a class="dropdown-item" href="locacoes_grafico.php">Gráfico de locações</a></li>
+                    <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico de locações</a></li>
                     <?php endif; ?>
                   </ul>
                 </li>
@@ -67,22 +64,14 @@
                 <?php endif; ?>
                 
               </ul>
-                <form class="d-flex" action="acaoLogin.php">
+                <form class="d-flex" action="acoes/acaoLogin.php">
                     <button class="btn btn-dark" name="acao" type="submit" value="logoff">Sair</button>
-                 </form>
+                </form>
           </div>
       </div>
     </nav>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
