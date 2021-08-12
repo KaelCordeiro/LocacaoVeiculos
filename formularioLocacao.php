@@ -69,14 +69,14 @@
                 </div>
             </div>
         </nav>
-        <form action="confirmaFormulario.php" method="POST" class="col-md-12 text-center" style="margin-top: 20px">
+        <form action="acoes/acaoLocacao.php" method="POST" class="col-md-12 text-center" style="margin-top: 20px">
             <h1>Formulário de locação</h1> <br/>
             <h2>Preencha os dados abaixo e clique no botão de prosseguir para a ser redirecionado à página de confirmação do formulário</h2> <br/> <br/> <br/>
             <h4>Nome do Cliente: <input type="text" name="nomeCliente"/></h4>  <br/>
             <h4>Nome do Veículo: <input type="text" name="nomeVeiculo"/></h4> <br/>
             <h4>Data: <input type="datetime-local" name="data"/></h4> <br/>
             <h4>Quantidade de dias: <input type="number" name="dias"/> <br/></h4> <br/>
-            <h4>Combustível: <input type="number" name="combustivel"/></h4> <br/>
+            <h4>Combustível (litros): <input type="number" name="combustivel"/></h4> <br/>
             <h4>
                 Opção de pagamento:
                 <select name="opcao">
@@ -86,7 +86,7 @@
                     <option value="3">3 - Por km rodado</option>
                 </select>
             </h4> <br/>
-            <button type="submit"><h3>Prosseguir</h3></button>
+            <button type="submit" name="acao" value="alugar"><h3>Confirmar</h3></button>
         </form>
     </body>
 </html>
