@@ -1,5 +1,5 @@
 <?php
-include '../connect/connect.php';
+require '../connect/connect.php';
 
 $cliente = $_POST['nomeCliente'];
 $veiculo = $_POST['nomeVeiculo'];

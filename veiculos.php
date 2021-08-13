@@ -85,7 +85,7 @@
                 <th>Motor</th>
             </tr>
             <?php  
-                include 'acoes/acaoListar.php';
+                require 'acoes/acaoListar.php';
                 
                 $veiculos = listarVeiculos();
                 foreach ($veiculos as $veiculo) {

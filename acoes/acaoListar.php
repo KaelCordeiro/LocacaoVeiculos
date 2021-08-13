@@ -1,8 +1,10 @@
 <?php
-include '../connect/connect.php';
-include '../classes/Veiculo.php';
+
+require 'connect/connect.php';
+require 'classes/Veiculo.php';
 
 function listarVeiculos() {
+
     $sql = "SELECT * FROM veiculo;";
     $result = mysqli_query($GLOBALS['conexao'], $sql);
     $row = mysqli_fetch_array($result);
@@ -20,8 +22,6 @@ function listarVeiculos() {
         $veiculo->setMotor($linha['vec_motor']);
         $veiculos[] = $veiculo;
     }
-    
-    return $veiculos;
-            
-}
 
+    return $veiculos;
+}
