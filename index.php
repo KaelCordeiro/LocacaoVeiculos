@@ -43,11 +43,11 @@
                     Locações
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <?php if ($perfil == "Cliente" || $perfil == "Admin"): ?>
+                    <?php if ($perfil != "Veículo"): ?>
                     <li><a class="dropdown-item" href="formularioLocacao.php">Alugar um veículo</a></li>
                     <?php endif; ?>
                     
-                    <?php if ($perfil != "Veiculo"): ?>
+                    <?php if ($perfil != "Veículo"): ?>
                     <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
                     <?php endif; ?>
                     
@@ -58,7 +58,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Veículos</a>
+                  <a class="nav-link" href="veiculos.php">Veículos</a>
                 </li>
                 
               </ul>

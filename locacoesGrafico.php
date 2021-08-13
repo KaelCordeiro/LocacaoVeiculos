@@ -46,7 +46,7 @@
                             Locações
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php if ($perfil == "Cliente" || $perfil == "Admin"): ?>
+                        <?php if ($perfil != "Veículo"): ?>
                             <li><a class="dropdown-item" href="locacoes.php">Alugar um veículo</a></li>
                         <?php endif; ?>
 
