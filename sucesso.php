@@ -1,12 +1,13 @@
 <?php
     session_start();
-    if (isset($_SESSION['perfil']) && $_SESSION['perfil'] != "Veículo") {
+    if (isset($_SESSION['perfil'])) {
         $perfil = $_SESSION['perfil'];
     } else {
         session_destroy();
         header("location:login.php");
     }
 ?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -67,24 +68,9 @@
                 </div>
             </div>
         </nav>
-        <form action="acoes/acaoLocacao.php" method="POST" class="col-md-12 text-center" style="margin-top: 20px">
-            <h1>Formulário de locação</h1> <br/>
-            <h2>Preencha os dados abaixo e clique no botão de prosseguir para a ser redirecionado à página de confirmação do formulário</h2> <br/> <br/> <br/>
-            <h4>Nome do Cliente: <input type="text" name="nomeCliente"/></h4>  <br/>
-            <h4>Nome do Veículo: <input type="text" name="nomeVeiculo"/></h4> <br/>
-            <h4>Data: <input type="datetime-local" name="data"/></h4> <br/>
-            <h4>Quantidade de dias: <input type="number" name="dias"/> <br/></h4> <br/>
-            <h4>Combustível (litros): <input type="number" name="combustivel"/></h4> <br/>
-            <h4>
-                Opção de pagamento:
-                <select name="opcao">
-                    <option selected="true" disabled="true">Opção</option>
-                    <option value="1">1 - Por dia</option>
-                    <option value="2">2 - Por hora</option>
-                    <option value="3">3 - Por km rodado</option>
-                </select>
-            </h4> <br/>
-            <button type="submit" name="acao" value="alugar"><h3>Confirmar</h3></button>
+        <form action="index.php" method="POST" class="col-md-12 text-center" style="margin-top: 150px">
+            <h1>Locação informada com sucesso!</h1> <br/> <br/> <br/> 
+            <button type="submit"><h3>Retornar à página inicial</h3></button>
         </form>
     </body>
 </html>

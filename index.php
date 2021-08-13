@@ -57,11 +57,9 @@
                   </ul>
                 </li>
                 
-                <?php if ($perfil == "Veiculo" || $perfil == "admin"): ?>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Veículos</a>
                 </li>
-                <?php endif; ?>
                 
               </ul>
                 <form class="d-flex" action="acoes/acaoLogin.php">
