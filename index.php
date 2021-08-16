@@ -29,36 +29,65 @@
                 <?php if ($perfil == "admin"): ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Documentos
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="relatorios/ExcelPrincipal.php">Relatório Principal (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordPrincipal.php">Relatório Principal (Word) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelUsuCliente.php">Clientes (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordUsuCliente.php">Clientes (Word) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelUsuVendedor.php">Vendedores (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordUsuVendedor.php">Vendedores (Word - Download)</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelLocacao.php">Locações (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordLocacao.php">Locações (Word) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelOpcao.php">Opções de Pagamento (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordOpcao.php">Opções de Pagamento (Word) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelUsuario.php">Perfis (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordUsuario.php">Perfis (Word) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/ExcelLogin.php">Logins registrados (Excel) - Download</a></li>
+                    <li><a class="dropdown-item" href="relatorios/WordLogin.php">Logins registrados (Word) - Download</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Usuários
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Cliente</a></li>
-                    <li><a class="dropdown-item" href="#">Vendedor</a></li>
+                    <li><a class="dropdown-item" href="clientes.php">Cliente</a></li>
+                    <li><a class="dropdown-item" href="vendedores.php">Vendedor</a></li>
                   </ul>
                 </li>
                 <?php endif; ?>
                 
+                <?php if ($perfil != "Veículo"): ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Locações
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php if ($perfil != "Veículo"): ?>
-                    <li><a class="dropdown-item" href="formularioLocacao.php">Alugar um veículo</a></li>
+                    <li><a class="dropdown-item" href="formularios/formularioLocacao.php">Alugar um veículo</a></li>
                     <?php endif; ?>
-                    
-                    <?php if ($perfil != "Veículo"): ?>
-                    <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                    <?php endif; ?>
-                    
-                    <?php if ($perfil == "admin"): ?>
-                    <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico de locações</a></li>
-                    <?php endif; ?>
+                     
+                    <li><a class="dropdown-item" href="locacoes.php"> <?php echo ($perfil == "Cliente" ? "Minhas locações" : "Consultar locações"); ?></a></li>
+                        <?php if ($perfil == "admin"): ?>
+                        <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico de locações</a></li>
+                        <?php endif; ?>
+
                   </ul>
                 </li>
+                <?php endif; ?>
                 
-                <li class="nav-item">
-                  <a class="nav-link" href="veiculos.php">Veículos</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Veículos
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="veiculos.php">Consultar veículos</a></li>
+                    <?php if ($perfil == "admin" || $perfil == "Vendedor"): ?>
+                    <li><a class="dropdown-item" href="formularios/formularioVeiculo.php">Cadastrar um veículo</a></li>
+                    <?php endif; ?>
+                  </ul>
                 </li>
                 
               </ul>

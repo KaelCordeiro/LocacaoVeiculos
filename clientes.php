@@ -7,17 +7,16 @@
         header("location:login.php");
     }
 ?>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="css/style.css" rel="stylesheet">
-        <title>Gráfico de locações</title>
-    </head>
-    <body class="admin">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Home</title>
+  </head>
+  <body class="<?php echo $perfil ?>">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><?php echo $perfil ?></a>
@@ -26,7 +25,8 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                 </li>
-
+                
+                <?php if ($perfil == "admin"): ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Documentos
@@ -57,25 +57,36 @@
                     <li><a class="dropdown-item" href="vendedores.php">Vendedor</a></li>
                   </ul>
                 </li>
+                <?php endif; ?>
                 
+                <?php if ($perfil != "Veículo"): ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Locações
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="formularioLocacao.php">Alugar um veículo</a></li>          
-                    <li><a class="dropdown-item" href="locacoes.php">Consultar Locações</a></li>
-                    <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico de locações</a></li>
+                    <?php if ($perfil != "Veículo"): ?>
+                    <li><a class="dropdown-item" href="formularios/formularioLocacao.php">Alugar um veículo</a></li>
+                    <?php endif; ?>
+                     
+                    <li><a class="dropdown-item" href="locacoes.php"> <?php echo ($perfil == "Cliente" ? "Minhas locações" : "Consultar locações"); ?></a></li>
+                        <?php if ($perfil == "admin"): ?>
+                        <li><a class="dropdown-item" href="locacoesGrafico.php">Gráfico de locações</a></li>
+                        <?php endif; ?>
+
                   </ul>
                 </li>
+                <?php endif; ?>
                 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Veículos
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="veiculos.php">Consultar veículos</a></li>
-                    <li><a class="dropdown-item" href="formularioVeiculo.php">Cadastrar um veículo</a></li>
+                      <li><a class="dropdown-item" href="veiculos.php">Consultar veículos</a></li>
+                    <?php if ($perfil == "admin" || $perfil == "Vendedor"): ?>
+                    <li><a class="dropdown-item" href="formularios/formularioVeiculo.php">Cadastrar um veículo</a></li>
+                    <?php endif; ?>
                   </ul>
                 </li>
                 
@@ -86,50 +97,52 @@
           </div>
       </div>
     </nav>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', {packages: ['corechart', 'bar']});
-            google.charts.setOnLoadCallback(desenharGrafico);
-            
-            function desenharGrafico() {
-                var data = new google.visualization.DataTable();
+        <table class="table table-hover">
+            <tr style="background-color: whitesmoke">
+                <th style="text-align: center" colspan="2">Tabela de Clientes</th>
+            </tr>
+            <tr style="background-color: whitesmoke">
+                <th>Nome</th>
+                <th>Ação</th>
+            </tr>
+            <?php  
+            require 'acoes/acaoListar.php';
+            require 'acoes/acaoUsuario.php';
 
-                data.addColumn('string', 'Mês');
-                data.addColumn('number', 'Locações');
-
-                data.addRows([
-                  ['Janeiro'  , <?php include 'acoes/acaoListar.php'; echo listarLocacoesGrafico('January');?>],
-                  ['Fevereiro', <?php echo listarLocacoesGrafico('February');?>],
-                  ['Março'    , <?php echo listarLocacoesGrafico('March');?>],
-                  ['Abril'    , <?php echo listarLocacoesGrafico('April');?>],
-                  ['Maio'     , <?php echo listarLocacoesGrafico('May')?>],
-                  ['Junho'    , <?php echo listarLocacoesGrafico('June');?>],
-                  ['Julho'    , <?php echo listarLocacoesGrafico('July');?>],
-                  ['Agosto'   , <?php echo listarLocacoesGrafico('August');?>],
-                  ['Setembro' , <?php echo listarLocacoesGrafico('September');?>],
-                  ['Outubro'  , <?php echo listarLocacoesGrafico('October');?>],
-                  ['Novembro' , <?php echo listarLocacoesGrafico('November');?>],
-                  ['Dezembro' , <?php echo listarLocacoesGrafico('December');?>]
-                ]);
-
-                var options = {
-                    title: 'Locações por mês',
-                    hAxis: {
-                      title: 'Mês'
-                    },
-                    vAxis: {
-                      title: 'Locações realizadas'
-                    }
-                };
-
-                var chart = new google.visualization.ColumnChart(
-                    document.getElementById('chart_div'));
-
-                chart.draw(data, options);
+            if (isset($_POST['acao'])) {
+                $acao = $_POST['acao'];
+                $codigoCliente = $_POST['codigoCliente'];
+                if ($acao == "ativar") {
+                    ativarCliente($codigoCliente);
+                }
+                if ($acao == "desativar") {
+                    desativarCliente($codigoCliente);
+                }
             }
-        </script>
-        <div id="chart_div" class="grafico"></div>    
-    </body>
+
+            $clientes = listarClientes();
+            foreach ($clientes as $cliente) {
+                echo '<tr style="background-color: whitesmoke">';
+                echo    '<td>'.$cliente->getNome().'</td>';
+                echo    '<td>';
+                if ($cliente->getAtivado()) {
+                    echo "<form action='?' method='POST'>";
+                    echo    "<input type='hidden' name='codigoCliente' value='{$cliente->getCodigo()}'/>";
+                    echo    "<button type='submit' name='acao' value='desativar'>Desativar</button>";
+                    echo '</form>';
+                } else {
+                    echo "<form action='?' method='POST'>";
+                    echo    "<input type='hidden' name='codigoCliente' value='{$cliente->getCodigo()}'/>";
+                    echo    "<button type='submit' name='acao' value='ativar'>Ativar</button>";
+                    echo '</form>';
+                }
+                echo    '</td>';
+                echo '</tr>';
+              }
+            ?>
+        </table>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
 </html>
