@@ -1,29 +1,28 @@
 <?php
-
-class Cliente {
+class Vendedor {
     
-    private $nome;
     private $codigo;
+    private $nome;
     private $ativado;
     
-    public function getNome() {
-        return $this->nome;
-    }
-
     public function getCodigo() {
         return $this->codigo;
     }
 
-    public function setNome($nome): void {
-        $this->nome = $nome;
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function getAtivado() {
+        return $this->ativado;
     }
 
     public function setCodigo($codigo): void {
         $this->codigo = $codigo;
     }
-    
-    public function getAtivado() {
-        return $this->ativado;
+
+    public function setNome($nome): void {
+        $this->nome = $nome;
     }
 
     public function setAtivado($ativado): void {

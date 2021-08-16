@@ -7,9 +7,8 @@ class Locacao {
     private $devolvido;
     private $combustivel;
     private $preco;
-    private $cliente;
-    private $vendedor;
-    private $veiculo;
+    private $clienteNome;
+    private $veiculoNome;
     private $opcao;
     
     public function getCodigo() {
@@ -36,16 +35,12 @@ class Locacao {
         return $this->preco;
     }
 
-    public function getCliente() {
-        return $this->cliente;
+    public function getClienteNome() {
+        return $this->clienteNome;
     }
 
-    public function getVendedor() {
-        return $this->vendedor;
-    }
-
-    public function getVeiculo() {
-        return $this->veiculo;
+    public function getVeiculoNome() {
+        return $this->veiculoNome;
     }
 
     public function getOpcao() {
@@ -76,16 +71,12 @@ class Locacao {
         $this->preco = $preco;
     }
 
-    public function setCliente($cliente): void {
-        $this->cliente = $cliente;
+    public function setClienteNome($clienteNome): void {
+        $this->clienteNome = $clienteNome;
     }
 
-    public function setVendedor($vendedor): void {
-        $this->vendedor = $vendedor;
-    }
-
-    public function setVeiculo($veiculo): void {
-        $this->veiculo = $veiculo;
+    public function setVeiculoNome($veiculoNome): void {
+        $this->veiculoNome = $veiculoNome;
     }
 
     public function setOpcao($opcao): void {

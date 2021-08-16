@@ -39,27 +39,34 @@
         $senhaBD = "";
         $usuario = "";
         $perfil = "";
+        $codigo = "";
 
         while ($row = mysqli_fetch_array($result)){
             $senhaBD = $row['log_senha'];
             $usuario = $row['log_id'];
             $perfil = $row['usu_perfil'];
             $ativo = $row['log_ativo'];
+            $codigo = $row['log_codigo'];
         }
 
         $senha = sha1($senha); 
         
-        if ($ativo) {
-            if ($senha == $senhaBD) {
-                session_start();
-                $_SESSION['usuario'] = $usuario;
-                $_SESSION['perfil'] = $perfil;
-                header("location:../index.php");	
-            } else { 
-                header("location:../login.php");
+        if ($ativo != null) {
+            if ($ativo) {
+                if ($senha == $senhaBD) {
+                    session_start();
+                    $_SESSION['usuario'] = $usuario;
+                    $_SESSION['perfil'] = $perfil;
+                    $_SESSION['codigo'] = $codigo;
+                    header("location:../index.php");	
+                } else { 
+                    header("location:../login.php");
+                }
+            } else {
+                header("location:../inativo.php");
             }
         } else {
-            header("location:../inativo.php");
+            header("location:../login.php");
         }
     }
         
